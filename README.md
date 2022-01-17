@@ -7,3 +7,10 @@ The term monolithic applies to tightly integrated applications where it is hard 
 When IT departments had the luxury of releasing software every six months, this type of upgrade process was tolerable. But modern business demands force releases to happen weekly, daily, or even more often, so the labor and risk inherent in upgrading monolithic applications become untenable.
 
 Something has to change. That change is the transformation to the microservices-oriented application (MOA).
+
+# What is a microservices-oriented application?
+An MOA breaks its logic into small, well-encapsulated services that are distributed over several computing devices in a loosely coupled manner. Each service lives at a distinct IP address on the network and exposes a public interface that is language-agnostic. The most popular type of language-agnostic interface is a REST API, but other models for communication exist. Microservices also generally get deployed as containers when it's time to go live.
+
+Typically, some mechanism behind the scenes coordinates the microservices to create a unified application experience. Because each microservice is well-encapsulated, its code can be updated quickly with minimal side effects. This makes maintenance easier and scaling faster.
+
+The benefits of an MOA can be significant, but they come with a price. You need to know a thing or two about microservice design to implement an MOA effectively—you can't make it up as you go along.
