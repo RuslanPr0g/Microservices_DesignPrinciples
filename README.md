@@ -14,3 +14,16 @@ An MOA breaks its logic into small, well-encapsulated services that are distribu
 Typically, some mechanism behind the scenes coordinates the microservices to create a unified application experience. Because each microservice is well-encapsulated, its code can be updated quickly with minimal side effects. This makes maintenance easier and scaling faster.
 
 The benefits of an MOA can be significant, but they come with a price. You need to know a thing or two about microservice design to implement an MOA effectively—you can't make it up as you go along.
+
+# Five design principles for microservices
+The five basic principles of microservice application design are:
+- A microservice has a single concern.
+- A microservice is discrete.
+- A microservice is transportable.
+- A microservice carries its own data.
+- A microservice is ephemeral.
+
+## 1. A microservice has a single concern
+Having a single concern means that a microservice should do one thing and one thing only. For example, if the microservice is intended to support authentication, it should do authentication only. This means that its interface should expose only access points that are relevant to authentication. And internally, the microservice should have authentication behavior only. For example, there should be no side behavior such as providing employee contact information in the authentication response.
+
+Having a single concern makes the microservice easier to maintain and scale. Having a single concern also goes hand-in-hand with the next principle.
