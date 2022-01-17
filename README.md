@@ -33,3 +33,9 @@ A microservice must have clear boundaries separating it from its environment. An
 
 Also, a discrete microservice is hosted in a distinct source control repository and is subject to its own CI/CD (continuous integration/continuous delivery) process. The microservice becomes part of a larger application after deployment. But from development through testing and on to release, each microservice is isolated from all other microservices. When a microservice is discrete, it becomes easily transportable, which is the next principle we'll cover.
 
+## 3. A microservice is transportable
+A transportable microservice can be moved from one runtime environment to another with little effort. Perhaps currently, the optimal form of a transportable microservice is a Linux container image.
+
+Usually, a Linux container image is hosted in an image repository such as Red Hat Quay.io. The container image can be targeted to any destination from that image repository, so a variety of applications can use the image. This is all possible because the microservice is encapsulated into a discrete deployment unit that can be transported to any destination. The encapsulation removes from developers all tasks except configuration and deployment.
+
+Transportable microservices also make them easier to use in an automated or declarative deployment process.
