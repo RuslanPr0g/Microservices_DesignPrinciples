@@ -39,3 +39,19 @@ A transportable microservice can be moved from one runtime environment to anothe
 Usually, a Linux container image is hosted in an image repository such as Red Hat Quay.io. The container image can be targeted to any destination from that image repository, so a variety of applications can use the image. This is all possible because the microservice is encapsulated into a discrete deployment unit that can be transported to any destination. The encapsulation removes from developers all tasks except configuration and deployment.
 
 Transportable microservices also make them easier to use in an automated or declarative deployment process.
+
+## 4. A microservice carries its own data
+A microservice should have its own data storage mechanism that is isolated from all other microservices. The only way data can be shared with other microservice is by way of a public interface that the microservice publishes.
+
+This principle imposes some discipline on data sharing: For instance, the particular data schema used by each microservice has to be well-documented. The design rules out behind-the-scenes hanky-panky that makes data hard to access or understand.
+
+The principle that a microservice carries its own data is hard for many developers to accept. The common argument against a microservice carrying its own data is that the principle leads to a proliferation of data redundancy.
+
+For example, imagine an e-commerce application. That application might have a microservice that manages customer profile information. The application has another microservice that handles purchases. When the principle that every microservice carries its own data is in force, it's quite possible that the purchases microservice might have data that is redundant with the customer profile microservice. Such data redundancy goes against the grain of developers who embrace the DRY principle (Don't Repeat Yourself).
+
+On the other hand, developers who embrace the carry-their-own data principle understand the benefits and have adjusted accordingly. When a microservice carries its own data, any strange behavior is confined within the microservice.
+
+When microservices try to share data, one microservice can make a change that causes a side effect in another microservice. This is fundamentally a bad way of doing business.
+
+One of the key benefits of a microservice carrying its own data is that it enforces all of the other principles. This is particularly important when it comes to the final principle: That a microservice is ephemeral.
+
