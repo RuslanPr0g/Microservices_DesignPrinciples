@@ -55,3 +55,13 @@ When microservices try to share data, one microservice can make a change that ca
 
 One of the key benefits of a microservice carrying its own data is that it enforces all of the other principles. This is particularly important when it comes to the final principle: That a microservice is ephemeral.
 
+## 5. A microservice is ephemeral
+The principle that a microservice is ephemeral means that it can be created, destroyed, and replenished on demand on a given target easily, quickly, and with no side effects. The standard operating expectation is that microservices come and go all the time, sometimes due to system failure and sometimes due to scaling demands.
+
+This scenario is common in a Kubernetes environment that uses the Horizontal Pod Autoscaler (HPA) to accommodate scaling demands. The HPA creates and destroys containers according to momentary demands. Each time a container is created, an IP address is assigned dynamically. There are even situations where port numbers will be assigned dynamically too. Such are the impacts of ephemeral computing.
+
+As a result, this principle that a microservice is ephemeral has two basic implications. The first is that developers need to create microservices that are good citizens in the application domain. This means implementing graceful startup and shutdown behavior within the microservice.
+
+The second implication is that when programming their microservices, developers rely on runtime configuration settings to define external dependencies. This hand-off to an external configuration differs greatly from creating a monolithic application, where most dependencies are known at design time and are baked into the code. In microservice development, they're not. Instead, developers rely upon dynamic configuration to establish dependencies that are both internal and external to the microservice.
+
+As strange as it might sound, coding to an ephemeral environment requires developers to accept that there are "known unknowns" that will be apparent at runtime. Hence, the need to program accordingly.
